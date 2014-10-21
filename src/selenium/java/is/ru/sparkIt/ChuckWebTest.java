@@ -42,4 +42,16 @@ public class ChuckWebTest {
         String bodyText = driver.findElement(By.tagName("body")).getText();
         assertTrue(bodyText.toLowerCase().contains("chuck norris"));
     }
+    @Test
+    public void assertContainesDot() {
+        String port = System.getenv("PORT");
+        if(port == null){
+            port = "4567";
+        }
+        driver.get("http://localhost:" + port);
+        String bodyText = driver.findElement(By.tagName("body")).getText();
+        assertTrue(bodyText.toLowerCase().contains("."));
+    }
+
+
 }
